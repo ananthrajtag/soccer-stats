@@ -9,7 +9,7 @@ final GIT_URL = 'https://github.com/ricardozanini/soccer-stats.git'
 final NEXUS_URL = 'http://ec2-3-213-56-26.compute-1.amazonaws.com:8081'
 
 stage('Build') {
-    node {
+    node('LINUX') {
         git GIT_URL
         withEnv(["PATH+MAVEN=${tool 'Maven3'}/bin"]) {
             if(FULL_BUILD) {
@@ -24,7 +24,7 @@ stage('Build') {
 
 if(FULL_BUILD) {
     stage('Unit Tests') {   
-        node {
+        node('LINUX') {
             withEnv(["PATH+MAVEN=${tool 'Maven3'}/bin"]) {
                 sh "mvn -B clean test"
                 stash name: "unit_tests", includes: "target/surefire-reports/**"
@@ -35,7 +35,7 @@ if(FULL_BUILD) {
 
 if(FULL_BUILD) {
     stage('Integration Tests') {
-        node {
+        node('LINUX') {
             withEnv(["PATH+MAVEN=${tool 'Maven3'}/bin"]) {
                 sh "mvn -B clean verify -Dsurefire.skip=true"
                 stash name: 'it_tests', includes: 'target/failsafe-reports/**'
@@ -46,7 +46,7 @@ if(FULL_BUILD) {
 
 if(FULL_BUILD) {
     stage('Static Analysis') {
-        node {
+        node('LINUX') {
             withEnv(["PATH+MAVEN=${tool 'Maven3'}/bin"]) {
                 withSonarQubeEnv('sonar'){
                     unstash 'it_tests'
@@ -69,7 +69,7 @@ if(FULL_BUILD) {
 
 if(FULL_BUILD) {
     stage('Artifact Upload') {
-        node {
+        node('LINUX') {
             unstash 'artifact'
 
             def pom = readMavenPom file: 'pom.xml'
@@ -95,7 +95,7 @@ if(FULL_BUILD) {
 
 
 stage('Deploy') {
-    node {
+    node('LINUX') {
         def pom = readMavenPom file: "pom.xml"
         def repoPath =  "${pom.groupId}".replace(".", "/") + 
                         "/${pom.artifactId}"
