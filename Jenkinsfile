@@ -51,7 +51,7 @@ if(FULL_BUILD) {
     stage('Static Analysis') {
         node('LINUX') {
             withEnv(["PATH+MAVEN=${tool 'Maven3'}/bin"]) {
-                withSonarQubeEnv('sonar'){
+                withSonarQubeEnv('SonarQube'){
                     unstash 'it_tests'
                     unstash 'unit_tests'
                     sh 'mvn sonar:sonar -DskipTests'
