@@ -86,6 +86,8 @@ if(FULL_BUILD) {
                     [artifactId: "${pom.artifactId}", classifier: '', file: "${file}.pom", type: 'pom']
                 ], 
                 credentialsId: 'nexus', 
+                nexusInstanceId: 'nexus3',
+                nexusRepositoryId: 'ansible-meetup'
                 groupId: "${pom.groupId}", 
                 nexusUrl: NEXUS_URL, 
                 nexusVersion: 'nexus3', 
