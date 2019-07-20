@@ -1,9 +1,12 @@
 #!groovy​
 
 // FULL_BUILD -> true/false build parameter to define if we need to run the entire stack for lab purpose only
-final FULL_BUILD = params.FULL_BUILD
+//final FULL_BUILD = params.FULL_BUILD
+final FULL_BUILD = true
 // HOST_PROVISION -> server to run ansible based on provision/inventory.ini
-final HOST_PROVISION = params.HOST_PROVISION
+//final HOST_PROVISION = params.HOST_PROVISION
+
+final HOST_PROVISION = "ec2-3-213-56-26.compute-1.amazonaws.com"
 
 final GIT_URL = 'https://github.com/ricardozanini/soccer-stats.git'
 final NEXUS_URL = 'http://ec2-3-213-56-26.compute-1.amazonaws.com:8081'
