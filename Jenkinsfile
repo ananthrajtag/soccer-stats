@@ -6,7 +6,7 @@ final FULL_BUILD = params.FULL_BUILD
 final HOST_PROVISION = params.HOST_PROVISION
 
 final GIT_URL = 'https://github.com/ricardozanini/soccer-stats.git'
-final NEXUS_URL = 'nexus.local:8081'
+final NEXUS_URL = 'http://ec2-3-213-56-26.compute-1.amazonaws.com:8081'
 
 stage('Build') {
     node {
