@@ -6,10 +6,10 @@ final FULL_BUILD = true
 // HOST_PROVISION -> server to run ansible based on provision/inventory.ini
 //final HOST_PROVISION = params.HOST_PROVISION
 
-final HOST_PROVISION = "ec2-3-213-56-26.compute-1.amazonaws.com"
+final HOST_PROVISION = "ec2-13-234-65-103.ap-south-1.compute.amazonaws.com"
 
-final GIT_URL = 'https://github.com/ricardozanini/soccer-stats.git'
-final NEXUS_URL = 'http://ec2-3-213-56-26.compute-1.amazonaws.com:8081'
+final GIT_URL = 'https://github.com/ananthrajtag/soccer-stats.git'
+final NEXUS_URL = 'http://13.234.65.103:8081/'
 
 stage('Build') {
     node('LINUX') {
