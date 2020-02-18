@@ -9,7 +9,7 @@ final FULL_BUILD = true
 final HOST_PROVISION = "ec2-13-234-65-103.ap-south-1.compute.amazonaws.com"
 
 final GIT_URL = 'https://github.com/ananthrajtag/soccer-stats.git'
-final NEXUS_URL = 'http://13.234.65.103:8081/'
+final NEXUS_URL = '13.234.65.103:8081'
 
 stage('Build') {
     node('LINUX') {
