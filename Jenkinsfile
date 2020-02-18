@@ -128,7 +128,7 @@ stage('Deploy') {
             inventory: 'provision/inventory.ini', 
             playbook: 'provision/playbook.yml', 
             sudo: true,
-            sudoUser: 'jenkins'
+            sudoUser: 'ec2-user'
         }
     }
 }
