@@ -126,9 +126,9 @@ stage('Deploy') {
             limit: "${HOST_PROVISION}",
             installation: 'ansible',
             inventory: 'provision/inventory.ini', 
-            playbook: 'provision/playbook.yml', 
-            sudo: true,
-            sudoUser: 'ec2-user'
+            playbook: 'provision/playbook.yml'
+           // sudo: true,
+          //  sudoUser: 'ec2-user'
         }
     }
 }
