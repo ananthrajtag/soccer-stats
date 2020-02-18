@@ -47,6 +47,7 @@ if(FULL_BUILD) {
     }
 }
 
+
 if(FULL_BUILD) {
     stage('Static Analysis') {
         node('LINUX') {
